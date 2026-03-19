@@ -11,7 +11,7 @@ class Program
         do
         {
             imprimirMenu();
-            opcion = ingresarIntC();
+            opcion = ingresarIntM();
             switch (opcion)
             {
             case 1:
@@ -47,7 +47,7 @@ static void imprimirMenu(){
     Console.WriteLine("5. Salir");
 
 }
-static int ingresarIntC(){
+static int ingresarIntM(){
     int opcion = 0;
 while (opcion!= 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5)
 {
@@ -63,7 +63,11 @@ return opcion;
 static void opcion1(Curso curso){
     string nombre = pedirString(" Ingrese el nombre del alumno/a a agregar. "); 
     int dni = pedirInt(" Ingrese el DNI del Alumno/a"); 
-curso.agregarAlumno(nombre, dni);
+bool v = curso.agregarAlumno(nombre, dni);
+if (v){
+    System.Console.WriteLine("El alumno fue agregado correctamente");
+}
+else System.Console.WriteLine("El alumno no se pudo agregar, un alumno con ese dni ya existe");
 }
 static void opcion2(){
 
